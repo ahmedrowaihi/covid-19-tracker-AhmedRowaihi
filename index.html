@@ -11,15 +11,30 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
     <script src="map-style.js"></script>
-    <script src="script.js"></script>
 </head>
 <body>
   <div class="container-fluid main">
     <div class="row">
-      <div class="col-2">
-
+      <div class="col-4 panel-side">
+        <div class="row countries-info">
+          <div class="col country-data">
+            <table class="table tablestriped">
+              <thead>
+                <tr>
+                  <th scope="col">Country Name</th>
+                  <th scope="col">Cases</th>
+                  <th scope="col">Recovered</th>
+                  <th scope="col">Deaths</th>
+                </tr>
+              </thead>
+              <tbody id="table-data">
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-      <div class="col-8">
+      <div class="col-8 main-side">
         <div class="row header-container">
           <div class="col title-container">
             <h1>Covid-19</h1>
@@ -36,34 +51,34 @@
         </div>
         <div class="row stats-container">
           <div class="col">
-            <div id="total-cases" class="card">
+            <div id="total-cases" class="card active-card" onclick="changeDataSelection('cases', this)">
               <div class="card-body">
                 <h5 class="card-title">Total Cases</h5>
-                <h6 class="card-subtitle mb-2 text-muted">1,436,886</h6>
+                <h6 class="card-subtitle mb-2 total-number">1,436,886</h6>
               </div>
             </div>
           </div>
           <div class="col">
-            <div id="active-cases" class="card">
+            <div id="active-cases" class="card" onclick="changeDataSelection('active', this)">
               <div class="card-body">
                 <h5 class="card-title">Active Cases</h5>
-                <h6 class="card-subtitle mb-2 text-muted">1,049,886</h6>
+                <h6 class="card-subtitle mb-2 active-number">1,049,886</h6>
               </div>
             </div>
           </div>
           <div class="col">
-            <div id="total-recovered" class="card">
+            <div id="total-recovered" class="card" onclick="changeDataSelection('recovered', this)">
               <div class="card-body">
                 <h5 class="card-title">Recovered</h5>
-                <h6 class="card-subtitle mb-2 text-muted">302,964</h6>
+                <h6 class="card-subtitle mb-2 recovered-number">302,964</h6>
               </div>
             </div>
           </div>
           <div class="col">
-            <div id="total deaths" class="card">
+            <div id="total-deaths" class="card" onclick="changeDataSelection('deaths', this)">
               <div class="card-body">
-                <h5 class="card-title">Deaths</h5>
-                <h6 class="card-subtitle mb-2 text-muted">82,191</h6>
+                <h5 class="card-title ">Deaths</h5>
+                <h6 class="card-subtitle mb-2 deaths-number">82,191</h6>
               </div>
             </div>
           </div>
@@ -79,15 +94,24 @@
             </canvas>
           </div>
           <div class="col pie-chart mr-3">
-            <canvas id="pie"></canvas>
+            <div class="pie">
+              <canvas id="pie"></canvas>
+            </div>
+            <div class="buttons">
+              <button  class="btn btn-primary btn-lg" value="doughnut" onclick="pielooks(this);">
+                🍩 
+              </button>
+              <button class="btn btn-danger btn-lg" value="pie" onclick="pielooks(this);">
+                🥧   
+              </button>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-2">
-
-      </div>
     </div>
   </div>
+  <script src="Charts.js"></script>
+  <script src="script.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ7VvobsIYLr3Pe6cTNUnIUvzgpV2Na-o&callback=initMap"
     async defer></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
