@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+}
+
+.main {
+    height: 100vh;
+}
+
+
+/* Header Container --> */
+.title-container h1 {
+    color: #fc3c3c;
+    margin-bottom: 0;
+}
+
+.title-container h4 {
+    text-transform: uppercase;
+    color: #CACBCF;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.row.stats-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.row.stats-container .card{
+    align-items: center;
+    background-color: #EFF2F6;
+    border-radius: 12px;
+}
+
+.stats-container .card-body {
+    padding: 1rem;
+}
+/* Header Container <-- */
+
+
+
+/* MapStyles --> */
+.map-container {
+    height: 500px;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+/* MapStyle <-- */
+
+
+/* InfoWindowStyle --> */
+
+.info-container {
+    width: 150px;
+}
+
+.info-flag {
+    height: 80px;
+    width: 100%;
+    background-size: cover;
+    border-radius: 8px;
+}
+
+.info-flag img {
+    width: 100px;
+    border-radius: 5px;
+}
+
+.info-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+}
+
+.info-confirmed, .info-recovered, .info-deaths {
+    font-size: 16px;
+    margin-top: 5px;
+}
+/* InfoWindowStyle <-- */
+
+
+/* Charts Container Style --> */
+.chart-container {
+    height: 300px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.chart-container .col {
+    background-color: #EFF2F6;
+    border-radius: 12px;
+}
+
+.linear-chart , .pie-chart{
+    height: 100%;
+    width: 50%;
+}
+/* Charts Container <-- */
+
