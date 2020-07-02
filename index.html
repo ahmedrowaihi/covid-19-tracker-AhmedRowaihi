@@ -11,6 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
     <script src="map-style.js"></script>
+    <script src="Charts.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
   <div class="container-fluid main">
@@ -21,8 +23,9 @@
             <table class="table tablestriped">
               <thead>
                 <tr>
+                  <th scope="col"></th>
                   <th scope="col">Country Name</th>
-                  <th scope="col">Cases</th>
+                  <th scope="col">Confirmed</th>
                   <th scope="col">Recovered</th>
                   <th scope="col">Deaths</th>
                 </tr>
@@ -110,8 +113,6 @@
       </div>
     </div>
   </div>
-  <script src="Charts.js"></script>
-  <script src="script.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ7VvobsIYLr3Pe6cTNUnIUvzgpV2Na-o&callback=initMap"
     async defer></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

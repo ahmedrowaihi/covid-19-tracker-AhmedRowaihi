@@ -82,7 +82,7 @@ body {
 }
 
 .deaths-number {
-    color: #fb4443;
+    color: #e53e3e;
 }
 /* Header Container <-- */
 
@@ -106,8 +106,12 @@ body {
 
 .info-container {
     width: 150px;
+    margin-left: -27px;
 }
 
+.table thead th{
+    padding: 0;
+}
 .info-flag {
     height: 80px;
     width: 100%;

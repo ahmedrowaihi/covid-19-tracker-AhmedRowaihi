@@ -171,6 +171,8 @@ const buildpieChart = (data) =>{
 
      piechart = new Chart(ctxp, configp);
 };
+
+
 const pielooks = (kind)=>{
     if(kind.value === 'pie'){
         piechart.options.cutoutPercentage = 0;

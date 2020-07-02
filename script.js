@@ -35,11 +35,18 @@ var casesTypeColors = {
     recovered: '#7dd71d',
     deaths: '#fb4443'
 }
+
+
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 39.8283, lng: -98.5795},
         zoom: 3,
-        styles: mapStyle
+        styles: mapStyleLight,
+        disableDefaultUI: true,
+        restriction: {
+            latLngBounds: {north: 85, south: -85, west: -180, east: 180},
+            strictBounds: true
+          },
     });
     infoWindow = new google.maps.InfoWindow();
 }
@@ -70,9 +77,9 @@ const showDataOnMap = (data, casesType="cases") => {
         var countryCircle = new google.maps.Circle({
             strokeColor: casesTypeColors[casesType],
             strokeOpacity: 0.8,
-            strokeWeight: 2,
+            strokeWeight: 0,
             fillColor: casesTypeColors[casesType],
-            fillOpacity: 0.35,
+            fillOpacity: 0.50,
             map: map,
             center: countryCenter,
             radius: country[casesType]
@@ -123,6 +130,7 @@ const showDataInTable = (data) => {
     data.forEach((country)=>{
         html += `
         <tr>
+            <td style="background-image: url(${country.countryInfo.flag}); height: 100%; background-size: cover; width: 100%; border-radius: 16%;"></td>
             <td>${country.country}</td>
             <td>${country.cases}</td>
             <td>${country.recovered}</td>
