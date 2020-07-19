@@ -825,11 +825,13 @@ $("body").on("DOMSubtreeModified", "#mapLoadStatus", () => {
             if (city.confirmed > 0) {
               var country = getCountryByCode(city.country_id);
               // if velocity > 8, draw pulse
+              var imm;
+              if(country.image_url){imm = country.image_url}else { imm = `https://www.countryflags.io/${city.country_code}/iso_a2`}
               params = {
                 lat: city.lat,
                 lng: city.long,
                 name: city.city_name,
-                url: country.image_url,
+                url: imm,
                 confirmed: city.confirmed,
                 dead: city.dead,
                 recovered: city.recovered,
