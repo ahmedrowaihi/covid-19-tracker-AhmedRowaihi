@@ -83,12 +83,8 @@ fetch("https://www.trackcorona.live/api/cities")
       return x < y ? -1 : x > y ? 1 : 0;
     });
     // Update Map Data
-    CityLiveData.forEach((d, i) => {
-      city_data[i].updated = d.updated;
-      city_data[i].confirmed = d.confirmed;
-      city_data[i].dead = d.dead;
-      city_data[i].recovered = d.recovered;
-    });
+      city_data = CityLiveData;
+
     setTimeout(function () {
       alertify.success(`Cities, Updated!! 🚀💯`);
     }, 3000);
