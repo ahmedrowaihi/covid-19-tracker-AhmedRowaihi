@@ -86,7 +86,7 @@ fetch("https://www.trackcorona.live/api/cities")
       city_data.forEach((d, i) => {
         city_data[i].updated = CityLiveData[i].updated;
         city_data[i].confirmed = CityLiveData[i].confirmed;
-        city_data[i].dead = ]CityLiveData[i].dead;
+        city_data[i].dead = CityLiveData[i].dead;
         city_data[i].recovered = CityLiveData[i].recovered;
       });
     setTimeout(function () {
