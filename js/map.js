@@ -426,44 +426,44 @@ $("body").on("DOMSubtreeModified", "#mapLoadStatus", () => {
         }
       }
 
-      async function setMapColors() {
-        await country_data.forEach(function (elem) {
-          let feature = map.data.getFeatureById(elem.country_id);
-          let mapMode = document.getElementById("currentMapMode").textContent;
-          let color = "rgba(200, 54, 54, 0)";
-          if (mapMode == "confirmed") {
-            reset = true;
-            color = getMapColoring(elem.confirmed | 0, "confirmed");
-          } else if (mapMode == "recovered") {
-            if (elem.recovered === null) {
-              color = "rgba(200, 54, 54, 0)";
-            } else {
+        async function setMapColors() {
+          await country_data.forEach(function (elem) {
+            let feature = map.data.getFeatureById(elem.country_id);
+            let mapMode = document.getElementById("currentMapMode").textContent;
+            let color = "rgba(200, 54, 54, 0)";
+            if (mapMode == "confirmed") {
               reset = true;
-              color = getMapColoring(elem.confirmed | 0, "recovered");
+              color = getMapColoring(elem.confirmed | 0, "confirmed");
+            } else if (mapMode == "recovered") {
+              if (elem.recovered === null) {
+                color = "rgba(200, 54, 54, 0)";
+              } else {
+                reset = true;
+                color = getMapColoring(elem.confirmed | 0, "recovered");
+              }
+            } else if (mapMode == "dead") {
+              if (elem.dead === null) {
+                color = "rgba(200, 54, 54, 0)";
+              } else {
+                reset = true;
+                color = getMapColoring(elem.confirmed | 0, "dead");
+              }
             }
-          } else if (mapMode == "dead") {
-            if (elem.dead === null) {
-              color = "rgba(200, 54, 54, 0)";
-            } else {
-              reset = true;
-              color = getMapColoring(elem.confirmed | 0, "dead");
-            }
-          }
-          map.data.overrideStyle(feature, {
-            fillColor: color,
+            map.data.overrideStyle(feature, {
+              fillColor: color,
+            });
           });
-        });
 
-        // color province level topos if passes threshold
-        if (refineLevel >= 30) {
-          setCountryMapColors(us_states_data, "us");
-          setCountryMapColors(ca_province_data, "ca");
-          setCountryMapColors(br_province_data, "br");
-          setCountryMapColors(de_province_data, "de");
-          setCountryMapColors(fr_province_data, "fr");
-          setCountryMapColors(in_province_data, "in");
+          // color province level topos if passes threshold
+          if (refineLevel >= 30) {
+            setCountryMapColors(us_states_data, "us");
+            setCountryMapColors(ca_province_data, "ca");
+            setCountryMapColors(br_province_data, "br");
+            setCountryMapColors(de_province_data, "de");
+            setCountryMapColors(fr_province_data, "fr");
+            setCountryMapColors(in_province_data, "in");
+          }
         }
-      }
 
       setMapColors();
 
@@ -798,7 +798,7 @@ $("body").on("DOMSubtreeModified", "#mapLoadStatus", () => {
       function drawNewDataType(mode) {
         document.getElementById("currentMapMode").textContent = mode;
 
-        // reset cluster layer
+        // cluster layer
         markerCluster.clearMarkers();
 
         // reset map colors
