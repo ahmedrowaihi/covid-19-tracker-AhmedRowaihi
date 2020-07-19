@@ -61,11 +61,11 @@ fetch("https://www.trackcorona.live/api/provinces")
       return x < y ? -1 : x > y ? 1 : 0;
     });
     // Update Map Data
-    CountryLiveData.forEach((d, i) => {
-      provinces_data[i].updated = d.updated;
-      provinces_data[i].confirmed = d.confirmed;
-      provinces_data[i].dead = d.dead;
-      provinces_data[i].recovered = d.recovered;
+    ProvinceLiveData.forEach((d, i) => {
+      provinces_data[i].updated = ProvinceLiveData[i].updated;
+      provinces_data[i].confirmed = ProvinceLiveData[i].confirmed;
+      provinces_data[i].dead = ProvinceLiveData[i].dead;
+      provinces_data[i].recovered = ProvinceLiveData[i].recovered;
     });
     setTimeout(function () {
       alertify.success(`Provinces, Updated!! 🚀💯`);
@@ -83,8 +83,12 @@ fetch("https://www.trackcorona.live/api/cities")
       return x < y ? -1 : x > y ? 1 : 0;
     });
     // Update Map Data
-      city_data = CityLiveData;
-
+      city_data.forEach((d, i) => {
+        city_data[i].updated = CityLiveData[i].updated;
+        city_data[i].confirmed = CityLiveData[i].confirmed;
+        city_data[i].dead = ]CityLiveData[i].dead;
+        city_data[i].recovered = CityLiveData[i].recovered;
+      });
     setTimeout(function () {
       alertify.success(`Cities, Updated!! 🚀💯`);
     }, 3000);
