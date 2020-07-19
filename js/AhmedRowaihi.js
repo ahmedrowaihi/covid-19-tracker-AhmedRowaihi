@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 const showDataInTable = () => {
   var html = "";
   country_data.forEach((country) => {
@@ -308,4 +308,3 @@ const setSearchList = (k) => {
   });
   initDropdown(searchList);
 };
->>>>>>> 0f8417ab4e36aba69b34a1092b1526368f135d6a

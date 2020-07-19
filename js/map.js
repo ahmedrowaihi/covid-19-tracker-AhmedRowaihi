@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 async function startall() {
   await getCountryData();
 }
@@ -2645,4 +2645,3 @@ function updateTooltip(value, event) {
   svgTooltip.style.top = y + 21 + "px";
   svgTooltip.style.left = x + 1 + "px";
 }
->>>>>>> 0f8417ab4e36aba69b34a1092b1526368f135d6a
