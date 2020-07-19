@@ -1,8 +1,5 @@
-async function startall() {
-  await getCountryData();
-}
-function startJq() {
-  $("body").on("DOMSubtreeModified", "#mapLoadStatus", () => {
+$("body").on("DOMSubtreeModified", "#mapLoadStatus", () => {
+  function STARTALL() {
     var load = parseInt(document.getElementById("mapLoadStatus").innerHTML);
     if (load === numToposToLoad) {
       function removeAllCircles() {
@@ -1175,10 +1172,10 @@ function startJq() {
           document.getElementById("Info").style.display = "";
         });
     }
-  });
-}
-startall();
-function maplooks(params) {}
+  }
+  STARTALL();
+});
+
 // put all province level data in this array for the slider to function correctly
 //Generate an SVG representing a graph with the numbers given in array
 function generateGraphGivenNumbers(numArray, SVGID, options) {
