@@ -428,7 +428,7 @@ $("body").on("DOMSubtreeModified", "#mapLoadStatus", () => {
 
       async function setMapColors() {
         await country_data.forEach(function (elem) {
-          let feature = map.data.getFeatureById(elem.country_code);
+          let feature = map.data.getFeatureById(elem.country_id);
           let mapMode = document.getElementById("currentMapMode").textContent;
           let color = "rgba(200, 54, 54, 0)";
           if (mapMode == "confirmed") {
