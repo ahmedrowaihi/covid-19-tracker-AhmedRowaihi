@@ -1,6 +1,12 @@
 .canvhidden {
   right: -22em !important;
 }
+#photo img {
+    border-radius: 25% !important;
+    border: transparent solid;
+    height: 30px;
+    width: 35px;
+}
 .canvas-holder {
   display: flex;
   flex-direction: column;
