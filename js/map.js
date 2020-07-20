@@ -259,41 +259,6 @@ $("body").on("DOMSubtreeModified", "#mapLoadStatus", () => {
       // set refinement to 100 initially
       refine(refineLevel);
 
-      var input = document.getElementById("pac-input");
-      var autocomplete = new google.maps.places.Autocomplete(input, {
-        types: ["(regions)"],
-      });
-      autocomplete.bindTo("bounds", map);
-      autocomplete.setFields(["geometry"]);
-
-      map.addListener("idle", function () {
-        if (refineLevel >= 75) {
-          bounds = map.getBounds();
-          for (var i = 0; i < markers.length; i++) {
-            if (bounds.contains(markers[i].position)) {
-              circles[i].setVisible(true);
-              markers[i].setVisible(true);
-            } else {
-              circles[i].setVisible(false);
-              markers[i].setVisible(false);
-            }
-          }
-        }
-      });
-
-      autocomplete.addListener("place_changed", () => {
-        var place = autocomplete.getPlace();
-        if (!place.geometry) {
-          return;
-        }
-        if (place.geometry.viewport) {
-          map.fitBounds(place.geometry.viewport);
-          map.setZoom(6);
-        } else {
-          map.setCenter(place.geometry.location);
-          map.setZoom(8);
-        }
-      });
 
       // refinement slider code
       function refine(level) {
