@@ -1,9 +1,9 @@
 const showDataInTable = () => {
   var html = "";
-  country_data.forEach((country) => {
+  CountryLiveData.forEach((country, i) => {
     html += `
     <tr>
-    <th id="photo"><img src="${country.image_url}"/></th>
+    <th id="photo"><img src="${country_data[i].image_url}"/></th>
     <td id="cn">${country.confirmed}</td>
     <td id="rec">${country.recovered}</td>
     <td id="dead">${country.dead}</td>
@@ -46,8 +46,7 @@ fetch("https://www.trackcorona.live/api/countries")
       alertify.success(`Countries, Updated!! 🚀💯`);
     }, 3000);
     setSearchList(k);
-
-    showDataInTable();
+    getHistoricalData();
   });
 
 fetch("https://www.trackcorona.live/api/provinces")
@@ -83,12 +82,12 @@ fetch("https://www.trackcorona.live/api/cities")
       return x < y ? -1 : x > y ? 1 : 0;
     });
     // Update Map Data
-      city_data.forEach((d, i) => {
-        city_data[i].updated = CityLiveData[i].updated;
-        city_data[i].confirmed = CityLiveData[i].confirmed;
-        city_data[i].dead = CityLiveData[i].dead;
-        city_data[i].recovered = CityLiveData[i].recovered;
-      });
+    city_data.forEach((d, i) => {
+      city_data[i].updated = CityLiveData[i].updated;
+      city_data[i].confirmed = CityLiveData[i].confirmed;
+      city_data[i].dead = CityLiveData[i].dead;
+      city_data[i].recovered = CityLiveData[i].recovered;
+    });
     setTimeout(function () {
       alertify.success(`Cities, Updated!! 🚀💯`);
     }, 3000);

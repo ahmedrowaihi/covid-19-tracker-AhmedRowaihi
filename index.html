@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -22,7 +25,8 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     />
     <script src="https://kit.fontawesome.com/dd1ed04eb2.js" crossorigin="anonymous"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
     <link
       type="text/css"
       rel="stylesheet"
@@ -447,6 +451,43 @@
           </a>
 
           <div id="menuOptions">
+            <div style="
+                  display: flex;
+                  position: absolute;
+                  align-items: center;
+                  right: 1em;
+                  top: 3.7em;
+                  background-color: burlywood;
+                  border-radius: 50%;
+                  height: 39px;
+                  width: 40px;
+                  z-index: 4;
+                  justify-content: center;
+                  box-shadow: black 0.1px 1.2px 5px -2px;
+                " onclick="document.querySelector('.pio').classList.toggle('canvhidden')
+">
+              <a id="openlinechart" class="floating-btn" style="">
+                <i class="fas fa-chart-pie" style="color: white; border: 0; margin: auto;" aria-hidden="true"></i>              </a>
+            </div>
+<div style="
+                  display: flex;
+                  position: absolute;
+                  align-items: center;
+                  right: 1em;
+                  top: 6.5em;
+                  background-color: blueviolet;
+                  border-radius: 50%;
+                  height: 39px;
+                  width: 40px;
+                  z-index: 4;
+                  justify-content: center;
+                  box-shadow: black 0.1px 1.2px 5px -2px;
+                " onclick="document.querySelector('.lino').classList.toggle('canvhidden')
+">
+              <a id="openlinechart" class="floating-btn" style="">
+                <i class="fas fa-chart-line" style="color: white; border: 0; margin: auto;" aria-hidden="true"></i>
+              </a>
+            </div>
             <div class="circular-menu-left">
               <a
                 id="changeMode"
@@ -562,9 +603,27 @@
                 </a>
               </menu>
             </div>
-          </div>
-
-          <ul class="navbar-nav ml-auto" style="margin-left: 5% !important; width: 20%;">
+          <div class="canvas-holder lino canvhidden" style="
+          top: 4em;
+    right: 3em;
+      ">
+              <canvas id="chart-area" width="433" height="273"></canvas>
+            </div>
+      <div class="canvas-holder pio canvhidden" style="top: 18.2em;right: 3em;" >
+            <div class="pie"><canvas id="pie" width="290px" height="181px" ></canvas>
+            </div>
+            
+          <div class="piebutns" style="
+          margin-top: 4px;
+      ">
+              <button class="btn  btn-sm" value="doughnut" onclick="pielooks(this);">
+                🍩
+              </button>
+            <button class="btn  btn-sm" value="pie" onclick="pielooks(this);">
+              🥧
+            </button>
+            </div></div>
+          <ul class="navbar-nav ml-auto" style="margin-left: 5% !important; width: 100%;">
             <div class="ui fluid search selection dropdown">
               <input type="hidden" name="country" />
 <i class="fas fa-globe-americas" style="
@@ -1331,7 +1390,7 @@
     <script src="/js/lightmode.js"></script>
     <script src="/js/nightmode.js"></script>
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ7VvobsIYLr3Pe6cTNUnIUvzgpV2Na-o&amp;v=beta&amp;libraries=places&amp;callback=initMap"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ7VvobsIYLr3Pe6cTNUnIUvzgpV2Na-o&amp;v=beta&amp;callback=initMap"
       async=""
       defer=""
     ></script>
@@ -1366,5 +1425,7 @@
         MapInfo.style.marginTop = "-10px";
       }
     </script>
+        <script src="/charts.js"></script>
+
   </body>
 </html>

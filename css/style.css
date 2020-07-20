@@ -1,10 +1,19 @@
-/* @font-face {
-  font-family: "Nokia Pure Text";
-  src: local("Pacifico Regular"), local("Pacifico-Regular"),
-    url(https://trackcorona-images.s3.amazonaws.com/b0040e9e6a6db92b5c252acee3891874.woff2)
-      format("woff2");
-  font-display: swap;
-} */
+.canvhidden {
+  right: -22em !important;
+}
+.canvas-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 15em;
+  right: 4px;
+  width: 22em;
+  background: rgb(35, 41, 43);
+  border-radius: 17%;
+  border: rgb(35, 41, 43) solid;
+  height: 14em;
+}
 .mainFont {
   font-family: "Nokia Pure Text", sans-serif;
 }
